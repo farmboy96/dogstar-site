@@ -31,9 +31,10 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .wrap { width: 100%; max-width: var(--wide); margin: 0 auto; padding: 0 1rem; }
 
 .site-header { background: var(--navy); color: var(--white); border-bottom: 4px solid var(--gold); }
-.site-header .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 1rem; }
-.wordmark { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; color: var(--white); text-decoration: none; letter-spacing: 0.01em; }
-.wordmark:hover, .wordmark:focus { text-decoration: underline; text-decoration-color: var(--gold); }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; padding-top: 0.5rem; padding-bottom: 0.75rem; }
+/* The logo SVG (560 x 230) carries side padding of about 0.4 x its height; the negative margin sets the wordmark on the gutter. */
+.wordmark { display: block; line-height: 0; text-decoration: none; }
+.wordmark img { display: block; height: 5rem; width: auto; margin-left: -2rem; margin-right: -1.5rem; }
 .site-nav ul, .sub-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; max-width: none; }
 .site-nav a { color: var(--white); text-decoration: none; padding: 0.25rem 0; display: inline-block; }
 .site-nav a:hover, .site-nav a:focus { text-decoration: underline; text-decoration-color: var(--gold); }
@@ -77,7 +78,7 @@ dl { max-width: var(--measure); margin: 0 0 1em; }
 dt { font-weight: 600; margin-top: 1em; }
 dd { margin: 0.25em 0 0; }
 
-.site-footer { background: var(--navy); color: var(--stone); margin-top: 3rem; border-top: 4px solid var(--gold); padding: 2rem 0; font-size: 0.95rem; }
+.site-footer { background: var(--navy); color: var(--stone); margin-top: 0; border-top: 4px solid var(--gold); padding: 2rem 0; font-size: 0.95rem; }
 .site-footer a { color: var(--white); }
 .site-footer .cols { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
 .site-footer h2 { font-size: 1rem; color: var(--gold); margin: 0 0 0.5em; }
@@ -85,7 +86,11 @@ dd { margin: 0.25em 0 0; }
 .site-footer li { margin-bottom: 0.3em; }
 .site-footer .fine { margin-top: 1.5rem; margin-bottom: 0; color: var(--stone); }
 
+/* The last section meets the footer directly, so no white band shows under a stone section (S-20). */
+main > .band:last-child { padding-bottom: 3rem; }
+
 @media (min-width: 40rem) {
+  .wordmark img { height: 6rem; margin-left: -2.4rem; margin-right: -1.8rem; }
   h1 { font-size: 2.6rem; }
   h2 { font-size: 1.75rem; }
   .cards { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
@@ -117,7 +122,18 @@ dd { margin: 0.25em 0 0; }
 .sky:has(#cap-seats:target) .s-seats .halo, .sky:has(#cap-calibration:target) .s-calibration .halo,
 .sky:has(#cap-ap:target) .s-ap .halo, .sky:has(#cap-health:target) .s-health .halo,
 .sky:has(#cap-room:target) .s-room .halo { opacity: 0.28; }
-@media (max-width: 40rem) { .sky .lbl { font-size: 24px; } .sky .cap-lbl { font-size: 19px; } }
+/* Narrow screens: labels at 29 units render at 12.4 px or more (S-21); the AP Engine and rural-hospitals labels move under
+   their stars and Calibration's drops lower, so the larger labels do not collide. */
+@media (max-width: 40rem) {
+  .sky .lbl { font-size: 29px; }
+  .sky .cap-lbl { font-size: 24px; letter-spacing: 0.08em; }
+  .sky .s-ap .lbl { text-anchor: middle; transform: translate(-17px, 36px); }
+  .sky .s-health .lbl { text-anchor: middle; transform: translate(17px, 36px); }
+  .sky .s-calibration .lbl { transform: translate(0, 20px); }
+  .sky .cap-lbl.top { transform: translate(0, -8px); }
+  .sky .s-doctrine .lbl { transform: translate(-12px, 0); }
+  .sky .s-lanes .lbl { transform: translate(12px, 0); }
+}
 @media (prefers-reduced-motion: no-preference) { .sky .twinkle { animation: sky-twinkle 3.2s ease-in-out infinite; } }
 @keyframes sky-twinkle { 50% { opacity: 0.35; } }
 .sky .captions { position: relative; list-style: none; padding: 0; margin: 0 auto; max-width: 50rem; min-height: 6.5rem; border-top: 1px solid #2C4467; }
