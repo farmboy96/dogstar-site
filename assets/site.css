@@ -92,3 +92,8 @@ dd { margin: 0.25em 0 0; }
   .site-footer .cols { grid-template-columns: repeat(3, 1fr); }
   .hero { padding: 3.5rem 0 3.75rem; }
 }
+
+/* Home: the sky. Pass 41 draws the constellation here; until then (and without script) the captions show as a list. */
+.sky { background: var(--navy); color: var(--stone); padding: 0 0 2.5rem; }
+.sky ul { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
+.sky li { padding: 0.6rem 0 0.6rem 1.1rem; border-left: 3px solid var(--gold); margin-bottom: 0.6rem; }
