@@ -93,7 +93,36 @@ dd { margin: 0.25em 0 0; }
   .hero { padding: 3.5rem 0 3.75rem; }
 }
 
-/* Home: the sky. Pass 41 draws the constellation here; until then (and without script) the captions show as a list. */
+/* Home: the sky. No script: each star is a link to its caption; :target (with :has) shows the selected caption,
+   Dogstar when none is selected. Unselected captions are hidden visually only, so screen readers still read the whole
+   list, and with CSS off the captions show as a plain list. */
 .sky { background: var(--navy); color: var(--stone); padding: 0 0 2.5rem; }
-.sky ul { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
-.sky li { padding: 0.6rem 0 0.6rem 1.1rem; border-left: 3px solid var(--gold); margin-bottom: 0.6rem; }
+.sky .chart { overflow-x: auto; overflow-y: hidden; max-width: 50rem; margin: 0 auto; }
+.sky svg { display: block; width: 100%; height: auto; }
+.sky svg text { font-family: var(--sans); }
+.sky .lbl { font-size: 15px; fill: var(--stone); }
+.sky .lbl.strong { font-weight: 600; }
+.sky .lbl.dim { fill: #A9B5C4; }
+.sky .cap-lbl { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--gold); }
+.sky .star { cursor: pointer; text-decoration: none; }
+.sky .star:focus { outline: none; }
+.sky .star .halo { opacity: 0; transition: opacity 0.2s; }
+.sky .star .ring { stroke: transparent; stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.sky .star:hover .halo { opacity: 0.18; }
+.sky .star:focus-visible .ring { stroke: var(--gold); }
+.sky .star:focus-visible .halo { opacity: 0.22; }
+.sky:not(:has(.captions li:target)) .s-dogstar .halo,
+.sky:has(#cap-dogstar:target) .s-dogstar .halo, .sky:has(#cap-vision:target) .s-vision .halo,
+.sky:has(#cap-doctrine:target) .s-doctrine .halo, .sky:has(#cap-lanes:target) .s-lanes .halo,
+.sky:has(#cap-seats:target) .s-seats .halo, .sky:has(#cap-calibration:target) .s-calibration .halo,
+.sky:has(#cap-ap:target) .s-ap .halo, .sky:has(#cap-health:target) .s-health .halo,
+.sky:has(#cap-room:target) .s-room .halo { opacity: 0.28; }
+@media (max-width: 40rem) { .sky .lbl { font-size: 24px; } .sky .cap-lbl { font-size: 19px; } }
+@media (prefers-reduced-motion: no-preference) { .sky .twinkle { animation: sky-twinkle 3.2s ease-in-out infinite; } }
+@keyframes sky-twinkle { 50% { opacity: 0.35; } }
+.sky .captions { position: relative; list-style: none; padding: 0; margin: 0 auto; max-width: 50rem; min-height: 6.5rem; border-top: 1px solid #2C4467; }
+.sky .captions li { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.sky .captions li:target, .sky .captions:not(:has(li:target)) #cap-dogstar {
+  position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal;
+  padding: 1rem 0 0 1.1rem; margin-top: 1rem; border-left: 3px solid var(--gold); max-width: var(--measure);
+  scroll-margin-top: calc(min(100vw - 2rem, 50rem) * 0.5875 + 3rem); }
