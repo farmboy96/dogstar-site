@@ -142,3 +142,5 @@ main > .band:last-child { padding-bottom: 3rem; }
   position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal;
   padding: 1rem 0 0 1.1rem; margin-top: 1rem; border-left: 3px solid var(--gold); max-width: var(--measure);
   scroll-margin-top: calc(min(100vw - 2rem, 50rem) * 0.5875 + 3rem); }
+.film video { display: block; width: 100%; height: auto; max-width: 960px; margin: 0 auto; background: var(--navy); border-radius: 6px; }
+.film figcaption { text-align: center; margin-top: 0.6rem; color: var(--slate); font-size: 0.95rem; }
