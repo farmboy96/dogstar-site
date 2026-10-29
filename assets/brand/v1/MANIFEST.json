@@ -1,0 +1,51 @@
+{
+  "version": "1",
+  "date": "2026-10-29",
+  "files": [
+    {
+      "name": "constellation-by-dogstar-on-light.svg",
+      "bytes": 12573,
+      "sha256": "08672a369136e484f6b37c777a2687696b9c8c31963c4c2ca715e8c2dfb2ee18"
+    },
+    {
+      "name": "constellation-by-dogstar-on-navy.svg",
+      "bytes": 12573,
+      "sha256": "a3ed240f67652235d0f1eaf0c7bf1349bf5f9dc99101817724ffe42f384b1434"
+    },
+    {
+      "name": "dogstar-logo-on-light.svg",
+      "bytes": 25930,
+      "sha256": "84bcc59f51a08e1c464d807d7cb8d2b606a251a25c0cbe1503ec524efe6f841e"
+    },
+    {
+      "name": "dogstar-logo-on-navy.svg",
+      "bytes": 25930,
+      "sha256": "0cf97d7fa0e24c82aef6780c8c5dccab77b38422033721a3a38eb3e6991c8942"
+    },
+    {
+      "name": "dogstar-star.svg",
+      "bytes": 8072,
+      "sha256": "ad2fb460a025f2c8796bea35787e0c249579910e600d8a9f4a6d27ad370db9c2"
+    },
+    {
+      "name": "favicon.svg",
+      "bytes": 8137,
+      "sha256": "15816072a571704222f4b24dea65f39aa5cd27761821514ad18a8aef92f498f9"
+    },
+    {
+      "name": "README.md",
+      "bytes": 707,
+      "sha256": "a017851fe7b9db96137b498c1fefa51deeed4d678a5a0001c387ab5168dae7df"
+    },
+    {
+      "name": "tokens.css",
+      "bytes": 701,
+      "sha256": "e664e71b2a9d34d0ec962753e92915ef684a7fca10a2fe58103c876f64244678"
+    },
+    {
+      "name": "tokens.json",
+      "bytes": 609,
+      "sha256": "41c9d9a661fe48823c34834be7cdd71a1d77337ba1170f9978fd49a3656bcf90"
+    }
+  ]
+}

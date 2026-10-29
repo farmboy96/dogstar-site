@@ -4,3 +4,7 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Content-Security-Policy: default-src 'self'; media-src https://media.dogstartech.com; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
+
+/assets/brand/v1/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
