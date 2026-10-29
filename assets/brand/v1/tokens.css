@@ -1,0 +1,22 @@
+/* Dogstar brand tokens v1 (2026-10-29). Values copied from dogstar-site assets/site.css :root; the spacing scale is every rem
+   value site.css uses two or more times in padding, margin or gap. v1 never changes; a new version is a new folder. */
+:root {
+  --navy: #0B1F3A;
+  --gold: #C4A35A;
+  --white: #FFFFFF;
+  --slate: #4B5A6A;
+  --stone: #F5F2EA;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  --measure: 40rem;
+  --wide: 68rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.6rem;
+  --space-4: 0.75rem;
+  --space-5: 1rem;
+  --space-6: 1.25rem;
+  --space-7: 1.5rem;
+  --space-8: 2rem;
+  --space-9: 2.5rem;
+}
